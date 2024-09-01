@@ -748,8 +748,11 @@ screen preferences():
 
                     label _("语言")
                     textbutton "简体中文" action Language(None)
-                    textbutton "繁體中文" action Language("T_Chinese")
-                    textbutton "English" action Language("English")
+                    text "{font=SourceHanSansLite.ttf}繁體中文(开发中){/font}"
+                    text "{font=SourceHanSansLite.ttf}English(开发中){/font}"
+                    text "{font=SourceHanSansLite.ttf}日本語(开发中){/font}"
+                    # textbutton "繁體中文" action Language("T_Chinese")
+                    # textbutton "English" action Language("English")
                     
                 ## 可在此处添加 radio_pref 或 check_pref 类型的额外 vbox，以添加
                 ## 额外的创建者定义的偏好设置。

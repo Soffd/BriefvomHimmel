@@ -5,6 +5,8 @@ define ryuka = Character("{b}【原林柳香】{/b}", who_color="#ff8989", what_
 define wakayo = Character("{b}【淳谷若夜】{/b}", who_color="#ff00f2", what_prefix="『", what_suffix="』")
 define toichi = Character("{b}【淳谷桐市】{/b}", who_color="#26ff00", what_prefix="『", what_suffix="』")
 define mina = Character("{b}【素山未菜】{/b}", who_color="#b8b324", what_prefix="『", what_suffix="』")
+define kazumi = Character("{b}【九楽佳澄】{/b}", who_color="#ff0066", what_prefix="『", what_suffix="』")
+define mosheng = Character("{b}【陌生的声音】{/b}", who_color="#000000", what_prefix="『", what_suffix="』")
 
 image sakurab = "a/A1-2.png"
 image sakurac = "a/A1-3.png"
@@ -52,6 +54,16 @@ image mina3 = "sozai1/sozai_44.png"
 image mina4 = "sozai1/sozai_45.png"
 image mina5 = "sozai1/sozai_46.png"
 
+image kazumi1 = "RJ01235150/xile1.png"
+image kazumi2 = "RJ01235150/xile2.png"
+image kazumi3 = "RJ01235150/xile3.png"
+image kazumi4 = "RJ01235150/xile4.png"
+image kazumi5 = "RJ01235150/xile5.png"
+image kazumi6 = "RJ01235150/xile6.png"
+image kazumi7 = "RJ01235150/xile7.png"
+image kazumi8 = "RJ01235150/xile8.png"
+image kazumi9 = "RJ01235150/xile9.png"
+image kazumi10 = "RJ01235150/xile10.png"
 
 init python:
     import random

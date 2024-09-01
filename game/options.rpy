@@ -21,7 +21,7 @@ define gui.show_name = False
 
 ## 游戏版本号。
 
-define config.version = "0.1.4"
+define config.version = "0.1.5"
 
 
 ## 放置在游戏内“关于”屏幕上的文本。将文本放在三个引号之间，并在段落之间留出空
@@ -57,9 +57,10 @@ define gui.about = _p("""感谢曾为我作出指导的各位。（特别是那�
 作者的b站号：
     {a=https://b23.tv/dN9Bhix}YukiSoffd{/a}
 
-游戏群组：
-    {a=https://discord.com/invite/KC4e6tsdJp}Discord{/a}\n
-    {a=https://pd.qq.com/s/643oydoup}           QQ频道{/a}
+源代码：
+    {a=https://github.com/Soffd/BriefvomHimmel}Github{/a}\n
+反馈收集：
+    {a=https://docs.qq.com/form/page/DWE1KYXhCYU9yeHVi}腾讯文档{/a}\n
 
 反馈请戳：↑ 或发送邮件至654952566@qq.com
 """)
