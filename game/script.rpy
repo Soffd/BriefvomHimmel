@@ -71,8 +71,87 @@ init python:
     menu_musics = "audio/opbgm/opbgm" + str(random.randint(1,max_musics)) + ".mp3"
 
 define config.main_menu_music = menu_musics
+## 标题菜单和游戏菜单使用的图像。
+define gui.main_menu_background = "gui/main_menu.png"
+define gui.game_menu_background = "gui/game_menu.png"
 
-# define build.game_only_update = True
+init python:
+    import datetime
+    def get_month():
+        return datetime.datetime.now().month
+    def get_day():
+        return datetime.datetime.now().day
+
+image splash = "splash.png"
+
+label splashscreen:
+    $ _dismiss_pause = False
+    scene black
+    with Pause(1)
+    scene splash with dissolve
+    with Pause(2)
+    scene black with dissolve
+    with Pause(1)
+    show text "{b}{size=+20}{color=#f00}检测游戏版本中......" with dissolve
+    with Pause(2)
+    hide text
+    $ _dismiss_pause = True
+    jump updata
+label updata:
+    $ _dismiss_pause = False
+    $ quick_menu = False
+    define config.save = False
+    scene black
+    show text "{b}{size=+20}{color=#f00}检测游戏版本中......"
+    python:
+        version = 16
+        validate = 0
+        updata = 0
+        updata_error = 0
+        new_version = renpy.fetch("https://yukisoffd.com/new_version.txt", result="text")
+        new_version_num = int(new_version)
+        if version == new_version_num:
+            validate += 1
+        if version < new_version_num:
+            updata += 1
+        if version > new_version_num:
+            updata_error += 1
+    hide text with dissolve
+    if validate == 1:
+        show text "{b}{size=+20}{color=#f00}游戏版本检测完毕！已是最新版本！" with dissolve
+        with Pause(2)
+        hide text with dissolve
+        return
+    if updata == 1:
+        call screen updata_screem
+    if updata_error == 1:
+        call screen error_screem
+    $ _dismiss_pause = True
+    $ quick_menu = True
+    define config.save = True         
+    return
 
 label start:
     jump chapters_1
+
+screen updata_screem():
+    frame:
+        xcenter 0.5
+        ycenter 0.5
+        xsize 800
+        ysize 300
+        vbox:
+            text "{b}你当前的游戏版本不是最新的，建议前往官网更新！\n\n\n"
+            textbutton _("仍要进入") action Return("updata_screem")
+            text "{a=https://yukisoffd.com/bvhdownload/}{b}前往更新{/a}{/b}"
+
+screen error_screem():
+    frame:
+        xcenter 0.5
+        ycenter 0.5
+        xsize 800
+        ysize 300
+        vbox:
+            text "{b}你当前的游戏可能不是官方版本！\n\n\n"
+            textbutton _("退出游戏") action Quit()
+            text "{a=https://yukisoffd.com/bvhdownload/}{b}前往下载最新版本{/a}{/b}"

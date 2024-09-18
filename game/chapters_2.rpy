@@ -267,7 +267,7 @@ label chapters_2:
     ryuka "{b}心动么？要听吗？{/b}"
     hisaki "{b}既然你都这么说了。{/b}"
     menu:
-        "听一下这个所谓的劲爆消息":
+        "{b}听一下这个所谓的劲爆消息":
             hisaki "{b}说来听听。{/b}"
             hide ryukad
             show ryukab
@@ -286,7 +286,7 @@ label chapters_2:
             hisaki "{b}你这一点也不震撼。{/b}"
             hisaki "{b}资本嘛，有点黑产怎么了？{/b}"
             ryuka "{b}好镇定的反应。{/b}"
-        "这个消息一定无聊透了，不听":
+        "{b}这个消息一定无聊透了，不听":
             hisaki "{b}那我肯定是不听咯。{/b}"
             ryuka "{b}真不听？{/b}"
             hisaki "{b}不听，对你的八卦属实不感兴趣。{/b}"

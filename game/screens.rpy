@@ -293,7 +293,7 @@ screen navigation():
 
         if main_menu:
             textbutton _("开始游戏") action Start()
-            textbutton _("密码锁") action Jump("ceshi_15")
+            # textbutton _("密码锁") action Jump("ceshi_15")
 
         else:
             textbutton _("历史") action ShowMenu("history")
@@ -551,6 +551,7 @@ screen about():
             ## gui.about 通常在 options.rpy 中设置。
             if gui.about:
                 text "[gui.about!t]\n"
+            textbutton _("更新检测") action Start("updata")
 
             # text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]\n\n[renpy.license!t]")
 

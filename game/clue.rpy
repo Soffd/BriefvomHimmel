@@ -2,10 +2,12 @@ define clue_1 = Character("{b}线索一：淳谷若夜所说的“那帮人”�
 define clue_2 = Character("{b}线索二：根据柳香的劲爆消息，三山代公司有见不得人的黑产，真实性有待商榷。\n{/b}")
 define clue_3 = Character("{b}线索三：淳谷若夜讨厌番茄。\n{/b}")
 define clue_4 = Character("{b}线索四：淳谷若夜的母亲凯瑟琳是个外国人。\n{/b}")
+define clue_5 = Character("{b}线索五：淳谷若夜有一个带有密码的笔记本，密码未知。\n{/b}")
 define xiansuo_1 = 0
 define xiansuo_2 = 0
 define xiansuo_3 = 0
 define xiansuo_4 = 0
+define xiansuo_5 = 0
 
 screen clue():
     frame:
@@ -31,4 +33,6 @@ screen clue():
                     text "[clue_3]"
                 if xiansuo_4 == 1:
                     text "[clue_4]"
+                if xiansuo_5 == 1:
+                    text "[clue_5]"
                 textbutton _("退出") action Return("clue")

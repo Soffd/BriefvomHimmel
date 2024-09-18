@@ -21,7 +21,7 @@ define gui.show_name = False
 
 ## 游戏版本号。
 
-define config.version = "0.1.5"
+define config.version = "0.1.6"
 
 
 ## 放置在游戏内“关于”屏幕上的文本。将文本放在三个引号之间，并在段落之间留出空
@@ -41,6 +41,10 @@ define gui.about = _p("""感谢曾为我作出指导的各位。（特别是那�
     {a=https://kazuki-kaneko-music.com/}かねこかずき【kk】{/a}\n
     {a=https://www.dlsite.com/home/circle/profile/=/maker_id/RG47594.html}          Pastel Tone Music{/a}
 
+剧情设计：
+    {a=https://b23.tv/dN9Bhix}YukiSoffd{/a}\n
+    {a=https://b23.tv/uP0YEot}           宅急送黑洞{/a}\n
+
 感谢名单：
     {a=https://space.bilibili.com/1733740438/}埋土的机械龙{/a}\n
     {a=https://space.bilibili.com/628485868/}           黑凤梨BlackPineappl{/a}\n
@@ -54,7 +58,7 @@ define gui.about = _p("""感谢曾为我作出指导的各位。（特别是那�
 主菜单插画：
     {a=https://www.pixiv.net/users/87833254}AutoINS{/a}
 
-作者的b站号：
+主创作者的b站号：
     {a=https://b23.tv/dN9Bhix}YukiSoffd{/a}
 
 源代码：
@@ -63,6 +67,7 @@ define gui.about = _p("""感谢曾为我作出指导的各位。（特别是那�
     {a=https://docs.qq.com/form/page/DWE1KYXhCYU9yeHVi}腾讯文档{/a}\n
 
 反馈请戳：↑ 或发送邮件至654952566@qq.com
+
 """)
 
 
