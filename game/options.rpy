@@ -21,7 +21,7 @@ define gui.show_name = False
 
 ## 游戏版本号。
 
-define config.version = "0.1.6"
+define config.version = "0.1.10"
 
 
 ## 放置在游戏内“关于”屏幕上的文本。将文本放在三个引号之间，并在段落之间留出空
@@ -43,13 +43,7 @@ define gui.about = _p("""感谢曾为我作出指导的各位。（特别是那�
 
 剧情设计：
     {a=https://b23.tv/dN9Bhix}YukiSoffd{/a}\n
-    {a=https://b23.tv/uP0YEot}           宅急送黑洞{/a}\n
-
-感谢名单：
-    {a=https://space.bilibili.com/1733740438/}埋土的机械龙{/a}\n
-    {a=https://space.bilibili.com/628485868/}           黑凤梨BlackPineappl{/a}\n
-    {a=https://space.bilibili.com/378904108}            烈林凤{/a}\n
-    {b}      以及官群，renpy中文空间论坛的大佬们。{/b}
+    {a=https://b23.tv/uP0YEot}           宅急送黑洞{/a}
 
 特别鸣谢：
     {a=https://space.bilibili.com/21792043}花间莉萝{/a}\n
@@ -64,9 +58,7 @@ define gui.about = _p("""感谢曾为我作出指导的各位。（特别是那�
 源代码：
     {a=https://github.com/Soffd/BriefvomHimmel}Github{/a}\n
 反馈收集：
-    {a=https://docs.qq.com/form/page/DWE1KYXhCYU9yeHVi}腾讯文档{/a}\n
-
-反馈请戳：↑ 或发送邮件至654952566@qq.com
+    {a=https://docs.qq.com/form/page/DWE1KYXhCYU9yeHVi}腾讯文档{/a}
 
 """)
 

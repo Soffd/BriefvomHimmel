@@ -267,7 +267,7 @@ style quick_button_text is button_text
 style quick_button:
     properties gui.button_properties("quick_button")
     activate_sound "audio/maou_se_inst_piano2_7si.mp3"#这里是鼠标点击的声音
-    hover_sound "audio/maou_se_inst_piano2_1do.mp3"#这里是鼠标焦距在按钮上的声音
+    # hover_sound "audio/maou_se_inst_piano2_1do.mp3"#这里是鼠标焦距在按钮上的声音
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
@@ -328,7 +328,7 @@ style navigation_button:
     size_group "navigation"
     properties gui.button_properties("navigation_button")
     activate_sound "audio/maou_se_inst_piano2_7si.mp3"#这里是鼠标点击的声音
-    hover_sound "audio/maou_se_inst_piano2_1do.mp3"#这里是鼠标焦距在按钮上的声音
+    # hover_sound "audio/maou_se_inst_piano2_1do.mp3"#这里是鼠标焦距在按钮上的声音
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
@@ -551,7 +551,7 @@ screen about():
             ## gui.about 通常在 options.rpy 中设置。
             if gui.about:
                 text "[gui.about!t]\n"
-            textbutton _("更新检测") action Start("updata")
+            textbutton _("更新检测") action Start("updata_about")
 
             # text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]\n\n[renpy.license!t]")
 
@@ -749,10 +749,11 @@ screen preferences():
 
                     label _("语言")
                     textbutton "简体中文" action Language(None)
-                    text "{font=SourceHanSansLite.ttf}繁體中文(开发中){/font}"
-                    text "{font=SourceHanSansLite.ttf}English(开发中){/font}"
-                    text "{font=SourceHanSansLite.ttf}日本語(开发中){/font}"
                     # textbutton "繁體中文" action Language("T_Chinese")
+                    text "繁體中文(开发中)"
+                    text "English(开发中)"
+                    text "日本語(开发中)"
+                    
                     # textbutton "English" action Language("English")
                     
                 ## 可在此处添加 radio_pref 或 check_pref 类型的额外 vbox，以添加

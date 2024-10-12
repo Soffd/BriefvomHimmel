@@ -1,12 +1,12 @@
-﻿define sakura = Character("{b}【立山樱】{/b}", who_color="#00eeff", what_prefix="『", what_suffix="』")
-define zuco = Character("{b}【左桃】{/b}", who_color="#ff0000", what_prefix="『", what_suffix="』")
-define hisaki = Character("{b}【鸠山寿希】{/b}", who_color="#000dff", what_prefix="『", what_suffix="』")
-define ryuka = Character("{b}【原林柳香】{/b}", who_color="#ff8989", what_prefix="『", what_suffix="』")
-define wakayo = Character("{b}【淳谷若夜】{/b}", who_color="#ff00f2", what_prefix="『", what_suffix="』")
-define toichi = Character("{b}【淳谷桐市】{/b}", who_color="#26ff00", what_prefix="『", what_suffix="』")
-define mina = Character("{b}【素山未菜】{/b}", who_color="#b8b324", what_prefix="『", what_suffix="』")
-define kazumi = Character("{b}【九楽佳澄】{/b}", who_color="#ff0066", what_prefix="『", what_suffix="』")
-define mosheng = Character("{b}【陌生的声音】{/b}", who_color="#000000", what_prefix="『", what_suffix="』")
+﻿define sakura = Character("【立山樱】", who_color="#00eeff", what_prefix="「", what_suffix="」")
+define zuco = Character("【左桃】", who_color="#ff0000", what_prefix="「", what_suffix="」")
+define hisaki = Character("【鸠山寿希】", who_color="#000dff", what_prefix="「", what_suffix="」")
+define ryuka = Character("【原林柳香】", who_color="#ff8989", what_prefix="「", what_suffix="」")
+define wakayo = Character("【淳谷若夜】", who_color="#ff00f2", what_prefix="「", what_suffix="」")
+define toichi = Character("【淳谷桐市】", who_color="#26ff00", what_prefix="「", what_suffix="」")
+define mina = Character("【素山未菜】", who_color="#b8b324", what_prefix="「", what_suffix="」")
+define kazumi = Character("【九楽佳澄】", who_color="#ff0066", what_prefix="「", what_suffix="」")
+define mosheng = Character("【陌生的声音】", who_color="#000000", what_prefix="「", what_suffix="」")
 
 image sakurab = "a/A1-2.png"
 image sakurac = "a/A1-3.png"
@@ -92,7 +92,7 @@ label splashscreen:
     with Pause(2)
     scene black with dissolve
     with Pause(1)
-    show text "{b}{size=+20}{color=#f00}检测游戏版本中......" with dissolve
+    show text "{size=+20}{color=#f00}检测游戏版本中，请保持设备已经连接互联网......" with dissolve
     with Pause(2)
     hide text
     $ _dismiss_pause = True
@@ -102,12 +102,13 @@ label updata:
     $ quick_menu = False
     define config.save = False
     scene black
-    show text "{b}{size=+20}{color=#f00}检测游戏版本中......"
+    show text "{size=+20}{color=#f00}检测游戏版本中，请保持设备已经连接互联网......"
     python:
-        version = 16
+        version = 20
         validate = 0
         updata = 0
         updata_error = 0
+        announcement = renpy.fetch("https://yukisoffd.com/announcement.txt", result="text")
         new_version = renpy.fetch("https://yukisoffd.com/new_version.txt", result="text")
         new_version_num = int(new_version)
         if version == new_version_num:
@@ -118,9 +119,10 @@ label updata:
             updata_error += 1
     hide text with dissolve
     if validate == 1:
-        show text "{b}{size=+20}{color=#f00}游戏版本检测完毕！已是最新版本！" with dissolve
+        show text "{size=+20}{color=#f00}游戏版本检测完毕！已是最新版本！" with dissolve
         with Pause(2)
         hide text with dissolve
+        call screen announcement_screem
         return
     if updata == 1:
         call screen updata_screem
@@ -132,6 +134,7 @@ label updata:
     return
 
 label start:
+    $ quick_menu = True
     jump chapters_1
 
 screen updata_screem():
@@ -141,10 +144,12 @@ screen updata_screem():
         xsize 800
         ysize 300
         vbox:
-            text "{b}你当前的游戏版本不是最新的，建议前往官网更新！\n\n\n"
+            text "你当前的游戏版本不是最新的，建议前往官网更新！\n"
             textbutton _("仍要进入") action Return("updata_screem")
-            text "{a=https://yukisoffd.com/bvhdownload/}{b}前往更新{/a}{/b}"
-
+            text "{a=https://yukisoffd.com/bvhdownload/}前往更新{/a}":
+                xcenter 600
+                ycenter -25
+                
 screen error_screem():
     frame:
         xcenter 0.5
@@ -152,6 +157,65 @@ screen error_screem():
         xsize 800
         ysize 300
         vbox:
-            text "{b}你当前的游戏可能不是官方版本！\n\n\n"
+            text "你当前的游戏可能不是官方版本！\n"
             textbutton _("退出游戏") action Quit()
-            text "{a=https://yukisoffd.com/bvhdownload/}{b}前往下载最新版本{/a}{/b}"
+            text "{a=https://yukisoffd.com/bvhdownload/}前往下载最新版本{/a}":
+                xcenter 600
+                ycenter -25
+
+
+screen announcement_screem():
+    frame:
+        xcenter 0.5
+        ycenter 0.5
+        xsize 1280
+        ysize 720
+        viewport:
+            xinitial 0.0
+            yinitial 0.0
+            scrollbars "vertical"
+            mousewheel True
+            draggable True
+            pagekeys True
+            side_yfill True
+            vbox:
+                text "{color=#f00}{size=+10}游戏公告":
+                    xcenter 0.5
+                text "[announcement]"
+                textbutton _("我已知晓") action Return("announcement_screem")
+
+label updata_about:
+    $ _dismiss_pause = False
+    $ quick_menu = False
+    define config.save = False
+    scene black
+    with Pause(1)
+    show text "{size=+20}{color=#f00}检测游戏版本中，请保持设备已经连接互联网......"
+    python:
+        version = 20
+        validate = 0
+        updata = 0
+        updata_error = 0
+        new_version = renpy.fetch("https://yukisoffd.com/new_version.txt", result="text")
+        new_version_num = int(new_version)
+        if version == new_version_num:
+            validate += 1
+        if version < new_version_num:
+            updata += 1
+        if version > new_version_num:
+            updata_error += 1
+    with Pause(1)
+    hide text with dissolve
+    if validate == 1:
+        show text "{size=+20}{color=#f00}游戏版本检测完毕！已是最新版本！" with dissolve
+        with Pause(2)
+        hide text with dissolve
+        return
+    if updata == 1:
+        call screen updata_screem
+    if updata_error == 1:
+        call screen error_screem
+    $ _dismiss_pause = True
+    $ quick_menu = True
+    define config.save = True       
+    return
